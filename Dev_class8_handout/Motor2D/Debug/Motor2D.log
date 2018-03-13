@@ -1,0 +1,18 @@
+﻿  pugixml.cpp
+  j1Window.cpp
+  j1Textures.cpp
+  j1Render.cpp
+  p2Log.cpp
+  j1Scene.cpp
+  j1Pathfinding.cpp
+c:\users\jaumesv1\documents\github\group-movement\dev_class8_handout\motor2d\j1pathfinding.cpp(182): error C3867: 'p2List<PathNode>::count': non-standard syntax; use '&' to create a pointer to member
+c:\users\jaumesv1\documents\github\group-movement\dev_class8_handout\motor2d\j1pathfinding.cpp(182): error C2296: '>': illegal, left operand has type 'unsigned int (__thiscall p2List<PathNode>::* )(void) const'
+c:\users\jaumesv1\documents\github\group-movement\dev_class8_handout\motor2d\j1pathfinding.cpp(182): error C2297: '>': illegal, right operand has type 'unsigned int (__thiscall p2List<PathNode>::* )(void) const'
+  j1Map.cpp
+c:\users\jaumesv1\documents\github\group-movement\dev_class8_handout\motor2d\j1map.cpp(106): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\jaumesv1\documents\github\group-movement\dev_class8_handout\motor2d\j1map.cpp(107): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  j1Input.cpp
+  j1Audio.cpp
+  j1App.cpp
+  j1Main.cpp
+  Generating Code...

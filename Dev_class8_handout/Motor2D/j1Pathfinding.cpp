@@ -108,7 +108,7 @@ p2List_item<PathNode>* PathList::GetNodeLowestScore() const
 PathNode::PathNode() : g(-1), h(-1), pos(-1, -1), parent(NULL)
 {}
 
-PathNode::PathNode(int g, int h, const iPoint& pos, const PathNode* parent) : g(g), h(h), pos(pos), parent(parent)
+PathNode::PathNode(int g, int h, const iPoint& pos, PathNode* parent) : g(g), h(h), pos(pos), parent(parent)
 {}
 
 PathNode::PathNode(const PathNode& node) : g(node.g), h(node.h), pos(node.pos), parent(node.parent)
@@ -117,7 +117,7 @@ PathNode::PathNode(const PathNode& node) : g(node.g), h(node.h), pos(node.pos), 
 // PathNode -------------------------------------------------------------------------
 // Fills a list (PathList) of all valid adjacent pathnodes
 // ----------------------------------------------------------------------------------
-uint PathNode::FindWalkableAdjacents(PathList& list_to_fill) const
+uint PathNode::FindWalkableAdjacents(PathList& list_to_fill)
 {
 	iPoint cell;
 	uint before = list_to_fill.list.count();
@@ -222,12 +222,12 @@ int j1PathFinding::CreatePath(const iPoint& origin, const iPoint& destination)
 					}
 					else
 					{
-						//UPDATE THE PARENT NODE
+						neighbourNodeOnOpenList->data.parent = neighbourIterator->data.parent;
 					}
 				}
 				else
 				{
-					//UPDATE THE PARENT NODE
+					neighbourNodeOnOpenList->data.parent = neighbourIterator->data.parent;
 				}
 
 
@@ -267,6 +267,6 @@ int j1PathFinding::CreatePath(const iPoint& origin, const iPoint& destination)
 	// If it is already in the open list, check if it is a better path (compare G)
 	// If it is a better path, Update the parent
 
-	return -1;
+	return numOfSteps;
 }
 
