@@ -14,6 +14,7 @@ class j1Audio;
 class j1Scene;
 class j1Map;
 class j1PathFinding;
+class EntityManager;
 
 class j1App
 {
@@ -85,6 +86,7 @@ public:
 	j1Scene*			scene;
 	j1Map*				map;
 	j1PathFinding*		pathfinding;
+	EntityManager*		entityManager;
 
 private:
 
