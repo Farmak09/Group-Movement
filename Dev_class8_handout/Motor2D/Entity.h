@@ -4,14 +4,14 @@
 #include "p2Point.h"
 #include "SDL\include\SDL_rect.h"
 
-class SDL_Texture;
+struct SDL_Texture;
 
 class Entity
 {
 public:
 
 	Entity();
-	Entity(iPoint pos) : pos(pos) {};
+	Entity(iPoint pos, float speed) : pos(pos), speed(speed) {};
 	~Entity();
 
 public:
@@ -30,9 +30,10 @@ public:
 	
 	bool active = false;
 	iPoint pos = { 0,0 };
+	float speed = 0;
 	SDL_Rect collider = { 0,0,0,0 };
 	SDL_Texture* texture = nullptr;
-	
+	bool onDestination = false;
 };
 
 #endif // ENTITY

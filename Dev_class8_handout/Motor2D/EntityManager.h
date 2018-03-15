@@ -30,7 +30,7 @@ public:
 	p2List<Entity*> MakeEntityListFromSelection();
 
 
-	Entity* CreateEntity(iPoint pos);
+	Entity* CreateEntity(iPoint pos, float speed);
 
 	Squad* CreateSquad(p2List<Entity*> squadMembers);
 	

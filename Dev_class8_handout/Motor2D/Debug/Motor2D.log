@@ -1,28 +1,7 @@
-﻿  Entity.cpp
-c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\sdl\include\sdl_render.h(127): warning C4099: 'SDL_Texture': type name first seen using 'class' now seen using 'struct'
-  c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\entity.h(7): note: see declaration of 'SDL_Texture'
-c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\sdl\include\sdl_render.h(128): warning C4099: 'SDL_Texture': type name first seen using 'class' now seen using 'struct'
-  c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\sdl\include\sdl_render.h(127): note: see declaration of 'SDL_Texture'
-  EntityManager.cpp
-c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\entitymanager.h(30): error C2143: syntax error: missing ';' before '<'
-c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\entitymanager.h(30): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\entitymanager.h(30): error C2238: unexpected token(s) preceding ';'
-c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\entitymanager.h(35): error C2061: syntax error: identifier 'p2List'
-c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\entitymanager.h(46): error C2143: syntax error: missing ';' before '<'
-c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\entitymanager.h(46): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\entitymanager.h(46): error C2238: unexpected token(s) preceding ';'
-c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\entitymanager.h(47): error C2143: syntax error: missing ';' before '<'
-c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\entitymanager.h(47): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\entitymanager.h(47): error C2238: unexpected token(s) preceding ';'
-c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\sdl\include\sdl_render.h(127): warning C4099: 'SDL_Texture': type name first seen using 'class' now seen using 'struct'
-  c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\entity.h(7): note: see declaration of 'SDL_Texture'
-c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\sdl\include\sdl_render.h(128): warning C4099: 'SDL_Texture': type name first seen using 'class' now seen using 'struct'
-  c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\sdl\include\sdl_render.h(127): note: see declaration of 'SDL_Texture'
-  j1App.cpp
-c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\entity.h(7): warning C4099: 'SDL_Texture': type name first seen using 'struct' now seen using 'class'
-  c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\j1scene.h(6): note: see declaration of 'SDL_Texture'
-  j1Pathfinding.cpp
-c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\j1pathfinding.cpp(182): error C3867: 'p2List<PathNode>::count': non-standard syntax; use '&' to create a pointer to member
-c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\j1pathfinding.cpp(182): error C2296: '>': illegal, left operand has type 'unsigned int (__thiscall p2List<PathNode>::* )(void) const'
-c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\j1pathfinding.cpp(182): error C2297: '>': illegal, right operand has type 'unsigned int (__thiscall p2List<PathNode>::* )(void) const'
-  Generating Code...
+﻿  j1Pathfinding.cpp
+c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\p2point.h(114): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\p2point.h(110): note: while compiling class template member function 'int p2Point<int>::DistanceTo(const p2Point<int> &) const'
+  c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\j1pathfinding.cpp(162): note: see reference to function template instantiation 'int p2Point<int>::DistanceTo(const p2Point<int> &) const' being compiled
+  c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\j1pathfinding.h(83): note: see reference to class template instantiation 'p2Point<int>' being compiled
+c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\p2point.h(114): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  Motor2D.vcxproj -> C:\Users\farma\Documents\GitHub\Group-Movement\Dev_class8_handout\Debug\Development - Class 8 Handout.exe

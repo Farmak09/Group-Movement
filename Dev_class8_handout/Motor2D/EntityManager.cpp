@@ -85,9 +85,9 @@ p2List<Entity*> EntityManager::MakeEntityListFromSelection()
 	return tmp;
 }
 
-Entity* EntityManager::CreateEntity(iPoint pos)
+Entity* EntityManager::CreateEntity(iPoint pos, float speed)
 {
-	Entity* tmp = new Entity(pos);
+	Entity* tmp = new Entity(pos, speed);
 	entitiesList.add(tmp);
 
 	return tmp;

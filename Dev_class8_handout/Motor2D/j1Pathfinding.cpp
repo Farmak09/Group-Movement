@@ -172,19 +172,19 @@ int j1PathFinding::CreatePath(const iPoint& origin, const iPoint& destination)
 	if (!IsWalkable(origin) || !IsWalkable(destination))
 		return -1;
 
-	PathNode originNode;
+	PathNode originNode(0, origin.DistanceTo(destination), origin, nullptr);
 	PathList openNodes, closedNodes;
 	PathList NeighbourNodesList;
 
 	openNodes.list.add(originNode);
 
 	int numOfSteps = 0;
-	while (openNodes.list.count > 0)
+	while (openNodes.list.count() > 0)
 	{
-		p2List_item<PathNode>* currentNode = openNodes.GetNodeLowestScore();
+		p2List_item<PathNode>* tmp = openNodes.GetNodeLowestScore();
+		p2List_item<PathNode>* currentNode = closedNodes.list.add(tmp->data);
 
-		closedNodes.list.add(currentNode->data);
-		openNodes.list.del(currentNode);
+		openNodes.list.del(tmp);
 
 		if (currentNode->data.pos == destination)
 		{
@@ -227,7 +227,7 @@ int j1PathFinding::CreatePath(const iPoint& origin, const iPoint& destination)
 				}
 				else
 				{
-					neighbourNodeOnOpenList->data.parent = neighbourIterator->data.parent;
+					openNodes.list.add(neighbourIterator->data);
 				}
 
 
