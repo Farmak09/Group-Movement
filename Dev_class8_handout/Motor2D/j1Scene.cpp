@@ -8,6 +8,8 @@
 #include "j1Window.h"
 #include "j1Map.h"
 #include "j1PathFinding.h"
+#include "EntityManager.h"
+#include "Entity.h"
 #include "j1Scene.h"
 
 j1Scene::j1Scene() : j1Module()
@@ -59,18 +61,12 @@ bool j1Scene::PreUpdate()
 	iPoint p = App->render->ScreenToWorld(x, y);
 	p = App->map->WorldToMap(p.x, p.y);
 
-	if(App->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_DOWN)
+	if(App->input->GetMouseButtonDown(SDL_BUTTON_RIGHT) == KEY_DOWN)
 	{
-		if(origin_selected == true)
-		{
-			App->pathfinding->CreatePath(origin, p);
-			origin_selected = false;
-		}
-		else
-		{
-			origin = p;
-			origin_selected = true;
-		}
+		iPoint tmp;
+		App->input->GetMousePosition(tmp.x, tmp.y);
+		if(App->pathfinding->IsWalkable(App->map->WorldToMap(tmp.x, tmp.y)))
+			App->entityManager->CreateEntity(tmp, 1);
 	}
 
 	return true;
@@ -98,6 +94,7 @@ bool j1Scene::Update(float dt)
 		App->render->camera.x -= 1;
 
 	App->map->Draw();
+	App->entityManager->Draw();
 
 	int x, y;
 	App->input->GetMousePosition(x, y);
@@ -112,20 +109,6 @@ bool j1Scene::Update(float dt)
 
 	// Debug pathfinding ------------------------------
 	//int x, y;
-	App->input->GetMousePosition(x, y);
-	iPoint p = App->render->ScreenToWorld(x, y);
-	p = App->map->WorldToMap(p.x, p.y);
-	p = App->map->MapToWorld(p.x, p.y);
-
-	App->render->Blit(debug_tex, p.x, p.y);
-
-	const p2DynArray<iPoint>* path = App->pathfinding->GetLastPath();
-
-	for(uint i = 0; i < path->Count(); ++i)
-	{
-		iPoint pos = App->map->MapToWorld(path->At(i)->x, path->At(i)->y);
-		App->render->Blit(debug_tex, pos.x, pos.y);
-	}
 
 	return true;
 }

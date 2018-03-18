@@ -1,7 +1,2 @@
-﻿  j1Pathfinding.cpp
-c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\p2point.h(114): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\p2point.h(110): note: while compiling class template member function 'int p2Point<int>::DistanceTo(const p2Point<int> &) const'
-  c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\j1pathfinding.cpp(162): note: see reference to function template instantiation 'int p2Point<int>::DistanceTo(const p2Point<int> &) const' being compiled
-  c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\j1pathfinding.h(83): note: see reference to class template instantiation 'p2Point<int>' being compiled
-c:\users\farma\documents\github\group-movement\dev_class8_handout\motor2d\p2point.h(114): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+﻿  EntityManager.cpp
   Motor2D.vcxproj -> C:\Users\farma\Documents\GitHub\Group-Movement\Dev_class8_handout\Debug\Development - Class 8 Handout.exe

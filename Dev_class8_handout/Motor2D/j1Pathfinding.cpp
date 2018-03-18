@@ -61,7 +61,7 @@ uchar j1PathFinding::GetTileAt(const iPoint& pos) const
 }
 
 // To request all tiles involved in the last generated path
-const p2DynArray<iPoint>* j1PathFinding::GetLastPath() const
+p2DynArray<iPoint>* j1PathFinding::GetLastPath()
 {
 	return &last_path;
 }
@@ -172,6 +172,8 @@ int j1PathFinding::CreatePath(const iPoint& origin, const iPoint& destination)
 	if (!IsWalkable(origin) || !IsWalkable(destination))
 		return -1;
 
+	last_path.Clear();
+
 	PathNode originNode(0, origin.DistanceTo(destination), origin, nullptr);
 	PathList openNodes, closedNodes;
 	PathList NeighbourNodesList;
@@ -191,7 +193,7 @@ int j1PathFinding::CreatePath(const iPoint& origin, const iPoint& destination)
 			last_path.PushBack(currentNode->data.pos);
 			const PathNode* finalPath = currentNode->data.parent;
 
-			while (finalPath)
+			while (finalPath && finalPath->pos != origin)
 			{
 				last_path.PushBack(finalPath->pos);
 				finalPath = finalPath->parent;

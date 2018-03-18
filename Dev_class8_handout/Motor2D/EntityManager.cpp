@@ -26,6 +26,14 @@ bool EntityManager::Start()
 
 bool EntityManager::Update(float dt)
 {
+	for (p2List_item<Entity*>* iterator = entitiesList.start; iterator; iterator = iterator->next)
+	{
+		iterator->data->Update(dt); 
+	}
+
+	App->input->GetMousePosition(mousePos.x, mousePos.y);
+	mousePos = App->render->ScreenToWorld(mousePos.x, mousePos.y);
+
 	if (App->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_DOWN)
 	{
 		App->input->GetMousePosition(mouseDownPos.x, mouseDownPos.y);
@@ -33,15 +41,43 @@ bool EntityManager::Update(float dt)
 	}
 	if (App->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_REPEAT)
 	{
-		App->input->GetMousePosition(mousePos.x, mousePos.y);
-		mousePos = App->render->ScreenToWorld(mousePos.x, mousePos.y);
-
-		DrawSelectionArea();
+		drawSelectionArea = true;
 	}
 	if (App->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_UP)
 	{
-		selectedSquad = CreateSquad(MakeEntityListFromSelection());
+		selectedSquad = CreateSquad();
+		drawSelectionArea = false;
 	}
+
+
+
+	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_DOWN)
+	{
+		selectedSquad->StartMovement(mousePos);
+	}
+	return true;
+}
+
+bool EntityManager::Draw()
+{
+	if (selectedSquad)
+	{
+		for (p2List_item<Entity*>* iterator = selectedSquad->squadMembers.start; iterator; iterator = iterator->next)
+		{
+			if(iterator->data->isLeader)
+				App->render->DrawQuad(iterator->data->collider, 0, 0, 255, 255, false);
+			else
+				App->render->DrawQuad(iterator->data->collider, 0, 255, 255, 255, false);
+		}
+	}
+	for (p2List_item<Entity*>* iterator = entitiesList.start; iterator; iterator = iterator->next)
+	{
+		iterator->data->Draw();
+
+		if (drawSelectionArea) DrawSelectionArea();
+	}
+
+
 	return true;
 }
 
@@ -69,20 +105,7 @@ void EntityManager::DrawSelectionArea()
 		unitSelectionArea.h = mousePos.y - mouseDownPos.y;
 	}
 
-	App->render->DrawQuad(unitSelectionArea, 0, 100, 0, 80);
-}
-
-p2List<Entity*> EntityManager::MakeEntityListFromSelection()
-{
-	p2List<Entity*> tmp;
-	for (p2List_item<Entity*>* iterator = entitiesList.start; iterator; iterator->next)
-	{
-		if (SDL_HasIntersection(&iterator->data->collider, &unitSelectionArea))
-		{
-			tmp.add(iterator->data);
-		}
-	}
-	return tmp;
+	App->render->DrawQuad(unitSelectionArea, 255, 255, 255, 255, false);
 }
 
 Entity* EntityManager::CreateEntity(iPoint pos, float speed)
@@ -93,15 +116,23 @@ Entity* EntityManager::CreateEntity(iPoint pos, float speed)
 	return tmp;
 }
 
-Squad* EntityManager::CreateSquad(p2List<Entity*> squadMembers)
+Squad* EntityManager::CreateSquad()
 {
-	Squad* tmp = new Squad(squadMembers);
-	squadsList.add(tmp);
+	p2List<Entity*> tmp;
+	for (p2List_item<Entity*>* iterator = entitiesList.start; iterator; iterator = iterator->next)
+	{
+		if (SDL_HasIntersection(&iterator->data->collider, &unitSelectionArea))
+		{
+			tmp.add(iterator->data);
+		}
+	}
+	Squad* tmp2 = new Squad(tmp);
+	squadsList.add(tmp2);
 
-	return tmp;
+	return tmp2;
 }
 
 bool EntityManager::CleanUp()
 {
-	return false;
+	return true;
 }

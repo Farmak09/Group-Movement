@@ -23,16 +23,15 @@ public:
 	// Update Elements
 	bool Update(float dt);
 
+	//Draw all entities
+	bool Draw();
+
 	// Draws the area selected when clicking
 	void DrawSelectionArea();
 
-	// Uses area selected to filter the entities for a group
-	p2List<Entity*> MakeEntityListFromSelection();
-
-
 	Entity* CreateEntity(iPoint pos, float speed);
 
-	Squad* CreateSquad(p2List<Entity*> squadMembers);
+	Squad* CreateSquad();
 	
 	
 	
@@ -47,7 +46,7 @@ public:
 	p2List<Squad*> squadsList;
 	Squad* selectedSquad = nullptr;
 	SDL_Rect unitSelectionArea;
-
+	bool drawSelectionArea = false;
 };
 
 #endif // ENTITY_MANAGER
