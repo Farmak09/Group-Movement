@@ -67,7 +67,7 @@ Once you have a squad with a leader defined you will have to make them follow a 
 
 They aren't much different from one another son once you have one finished the other should be as well. Remeber that creating a path also means deleting the path previously usedand that units on the destination shouldn't be creating paths.
 
-![](https://i.gyazo.com/db539aa23e6047354b43d3d3c1cdaf3b.mp4)
+![](https://media.giphy.com/media/vMlCuuQHnonOUmrovv/giphy.gif)
 
 *If done correctly, by pressing a on a green tile with a squad selected something like this should happen*
 
