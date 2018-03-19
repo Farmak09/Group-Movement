@@ -6,7 +6,7 @@ I am [Jaume Suris](https://www.linkedin.com/in/jaume-suris-valhondo-5438a115b/),
 This is a repository meant to help those who are trying to add the movement of units as a group like in Real-time Strategy (RTS) games to their projects.
 The repository, made with SDL2, includes a file with the solution I reached and one with some exercises inbetween so you can follow to understand what's going on.
 
-![](https://giphy.com/gifs/1Q8W7EmWWjD7qeIzVB)
+![](https://giphy.com/gifs/1Q8W7EmWWjD7qeIzVB.gif)
 
 ### Creating the Group
 
