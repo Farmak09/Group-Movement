@@ -73,4 +73,11 @@ They aren't much different from one another son once you have one finished the o
 
 ### Collision with Entities
 
+This is the most ambiguous of the parts and the one that generates the most headaches. As I said before, the way to avoid overlapping entities is to make them push others to the side when they come in contact by changing slightly their direction. You should always push to the side furthest from your center in order for it to look natural and keep in mind situations where the entity can't move in that direction for some reason, like if there's a wall right next to it.
 
+I couldn't reach a solution for this on my code so it will be added as an extra for those interested in having a better group movement in their games.
+
+## Useful Pages About the Subject
+
+Most of my understanding on the issue comes from this article on gamasutra https://www.gamasutra.com/view/feature/131721/implementing_coordinated_movement.php
+Check it out in case you want more information.
