@@ -19,6 +19,7 @@ The trick I used to unite the squad while simplifying the pathfinding aspect is 
 Once this leader is selected, the squad should appear in a visual way differenciated from the rest of the units, since my sample doesn't include any kind of HUD, I made them blit a small square around them, with the leader's in a diferent color.
 
 **What is the leaders function?** A leader will be the only unit finding its way to the destination the moment the player clicks somewhere around the map. As you can see on the picture below, most of the units follow a similar path when the group is close together.
+
 ![](https://i.imgur.com/uDmRqA9.png)
 
 *The blue squares represent the path a unit follows while the green one is the place the player clicked*
