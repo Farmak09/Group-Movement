@@ -53,13 +53,24 @@ If you are able to acomplish all three of the steps I mentioned by yourself ther
 
 ### Creating the Squad
 
-Creating the squad is the first of the things you will have to do in order to have your functional group movement.
-This step is the simpliest of the three although any error made here will greatly affect the result.
+For this, setting the basis of what the class Squad is suposed to do is important on code, but also in your head. It's job starts the moment the player lifts the left button, and it needs to take care of everything from selecting who the lider is, to calling for the pathfinding module once a square is selected.
+
+The most important part of this segment is the method to select a new leader. Any issue about who the leader is will inevitably lead to errors on the result. 
 
 ![](https://i.gyazo.com/79e977089b62934528f0eb9bf4806306.png)
 
 *Image of a group of entities mixed with some that aren't*
 
+### Following a Path
 
-First of all, **what is a squad?**
-Well, in this case, a squad is the class where the list of entities is saved and the interactions between them are checked and calculated. For startes, 
+Once you have a squad with a leader defined you will have to make them follow a path. As explained before, there are two kinds of path for the units in the squad; the main path, that is the path the leader follows until the destination is reached, and the secondary paths, that each of the units follow in order to reach their leader. 
+
+They aren't much different from one another son once you have one finished the other should be as well. Remeber that creating a path also means deleting the path previously usedand that units on the destination shouldn't be creating paths.
+
+![](https://i.gyazo.com/db539aa23e6047354b43d3d3c1cdaf3b.mp4)
+
+*If done correctly, by pressing a on a green tile with a squad selected something like this should happen*
+
+### Collision with Entities
+
+
