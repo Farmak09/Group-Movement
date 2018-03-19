@@ -20,6 +20,7 @@ Once this leader is selected, the squad should appear in a visual way differenci
 
 **What is the leaders function?** A leader will be the only unit finding its way to the destination the moment the player clicks somewhere around the map. As you can see on the picture below, most of the units follow a similar path when the group is close together.
 ![](https://i.imgur.com/uDmRqA9.png)
+
 *The blue squares represent the path a unit follows while the green one is the place the player clicked*
 
 To avoid all those similar operations. the method I decided to use is, as soon as the destination is known, to make the leader find their own individual path to the goal, and for the rest of the squad, to find their way to the leader.
