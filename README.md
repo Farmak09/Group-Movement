@@ -8,13 +8,16 @@ This is a repository meant to help those who are trying to add the movement of u
 
 The repository, made with SDL2, includes a file with the solution I reached and one with some some parts of the code erased so whoever whats to, can fill them themselves in order to get a better understanding of their work.
 
-## About Gorup Movement
+## About Group Movement
+### The Problem
 
 Group movement is a complex issue in most of the games it has any relevance, since the better it is, the more recources it demands. For example, in order to reach from point A to point B, in a perfect world where no optimizations is needed you could calculate individually the paths of all the units, and afterwards make them calculate how to evade the others. 
 That would require too many operations that we cannot afford to expend on such similar incomes. But then, **how do we make units move so that they avoid collisions with the environment but maintaining a lower degree of operations?**
 
 There are different ways to approach this problem. For bigger projects, the squads move as a single entity, or as an entity for each of the sizes and terrains they can move on, and have an effect like that of a magnet pulling them together in order to stick close to one another and when a thinner obstacle appears, the units at the back push the ones at the front in order to let them in. 
 Code-wise this way to approach the issue requires a lot of knowledge so I decided to go for a simplier method, that still creates an effect of moving as a group while simplifying the pathfindings to a degree.
+
+### My Aproach to the Issue
 
 The trick I used to unite the squad while simplifying the pathfinding aspect is to create a **leader** for the squad. This leader will always be the nearest unit to the objective. In my case all the entities have the same movement capavilities, in case there were flying entities or faster units the squad should make a leader for each of the cases, so you don't limit the movement of better units or make units try to cross paths they cannot overcome.
 
